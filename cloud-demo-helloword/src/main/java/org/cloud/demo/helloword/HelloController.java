@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-	@Value("${config.test:word!}")
+	@Value("${app.hello}")
 	String bar;
 	
 	@RequestMapping("/")
 	String hello(){
-		return "Hello " + bar;
+		return "This is " + bar;
 	}
 }
