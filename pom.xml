@@ -17,5 +17,10 @@
   <modules>
     <module>cloud-demo-config</module>
     <module>cloud-demo-helloword</module>
+    <module>cloud-demo-eureka</module>
+    <module>cloud-demo-eureka-client</module>
+    <module>cloud-demo-eureka-server</module>
+    <module>cloud-demo-service</module>
+    <module>cloud-demo-web</module>
   </modules>
 </project>
