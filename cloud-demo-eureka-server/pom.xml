@@ -3,14 +3,19 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
  
-  <groupId>cloud-demo-eureka-server</groupId>
-  <artifactId>cloud-demo-eureka-server</artifactId>
-  <name>cloud-demo-eureka-server</name>
-  <url>http://maven.apache.org</url>
-  <parent>
+	<groupId>cloud-demo-eureka-server</groupId>
+	<artifactId>cloud-demo-eureka-server</artifactId>
+	<name>cloud-demo-eureka-server</name>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+  
+  	<parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.3.RELEASE</version>
+        <version>1.3.5.RELEASE</version>
         <relativePath />
     </parent>
 
@@ -19,7 +24,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-parent</artifactId>
-                <version>1.0.1.RELEASE</version>
+                <version>Brixton.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -28,11 +33,6 @@
 
 
     <dependencies>
-    	<!-- springboot web启动器 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <!-- SpringCloud配置启动器 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -48,13 +48,8 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
+    
     <repositories>
 		<repository>
 			<snapshots>
@@ -64,31 +59,8 @@
 			<name>Public Repositories</name>
 			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
 		</repository>
-		<repository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>http://repo.spring.io/libs-snapshot-local</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>http://repo.spring.io/libs-milestone-local</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>spring-releases</id>
-			<name>Spring Releases</name>
-			<url>http://repo.spring.io/libs-release-local</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-	</repository>
 	</repositories>
+	
 	<pluginRepositories>
 		<pluginRepository>
 			<id>public</id>
@@ -104,6 +76,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <defaultGoal>compile</defaultGoal>
     </build>
 </project>
 
