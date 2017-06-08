@@ -16,17 +16,19 @@ import feign.Request;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableCircuitBreaker
+//开启断路器
+@EnableCircuitBreaker  
+//开启Feign功能
 @EnableFeignClients
 public class WebApplication {
 	
-	private static final int FIVE_SECONDS = 50000;
+	private static final int FIVE_SECONDS = 5000;
 	
     public static void main( String[] args ){
         SpringApplication.run(WebApplication.class, args);
     }
     
-    @LoadBalanced //负载均衡
+    @LoadBalanced //开启软负载均衡
     @Bean
     RestTemplate restTemplate(){
     	return new RestTemplate();

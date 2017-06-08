@@ -2,11 +2,15 @@ package org.cloud.demo.service.controller;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.cloud.demo.service.bo.UserService;
 import org.cloud.demo.service.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +25,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Resource
+    private DiscoveryClient client;
 	
 	@RequestMapping(value="/addUser",method=RequestMethod.POST)
 	@ResponseBody
@@ -37,7 +44,11 @@ public class UserController {
 	@RequestMapping(value="/getAllUsers",method=RequestMethod.GET)
 	@ResponseBody
 	public List<User> getAllUsers(){
-		logger.info("============访问了getAllUsers方法=================");
-		return userService.getAllUsers();
+		List<User> listUser = userService.getAllUsers();
+		//获取服务信息
+		ServiceInstance instance = client.getLocalServiceInstance();
+		//输出服务信息
+		logger.info("uri={}，serviceId={}，result={}", instance.getUri(), instance.getServiceId(),listUser);
+		return listUser;
 	}
 }

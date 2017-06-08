@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
+//Ribbon实现方式
 @Service
 public class UserService {
 
@@ -20,11 +21,13 @@ public class UserService {
 	@Value("${service.name:test}")
 	String SERVICE_NAME;
 	 
+	@SuppressWarnings("unchecked")
 	@HystrixCommand(fallbackMethod = "fallbackSearchAll")
 	public List<User> readUserInfo() {
-	      return restTemplate.getForObject("http://"+ SERVICE_NAME +"/user/getAllUsers", List.class);
-		 //return feignUserService.readUserInfo();
-	}	 
+	     return restTemplate.getForObject("http://"+ SERVICE_NAME +"/user/getAllUsers", List.class);
+	}
+	
+	@SuppressWarnings("unused")
 	private List<User> fallbackSearchAll() {
 		 System.out.println("HystrixCommand fallbackMethod handle!");
 		 List<User> ls = new ArrayList<User>();
