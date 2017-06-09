@@ -1,0 +1,13 @@
+
+server: 
+  port: 8888 #启动端口
+  application:
+    name: cloud-demo-config #配置服务名称
+
+spring: 
+  cloud: 
+    config: 
+      server: 
+        git: 
+          uri: https://github.com/S1ow/cloud-demo.git #获取配置的git地址
+          searchPaths: cloud-demo-repo #搜索的配置路径
