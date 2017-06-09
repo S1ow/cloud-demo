@@ -1,20 +1,20 @@
 server:
   port: 8090
-  application:
-    name: cloudweb
 
 spring: 
+  application: 
+    name: cloudweb
   cloud:
     config:
       uri: http://${config.server.ip}:${config.server.port}
-      name: cloudservice
+      name: cloudweb
       profile: ${app.profile:test}
 
 #service discovery url
 eureka: 
   client:
     serviceUrl:
-      defaultZone: http\://localhost\:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 
 #ribbon config
 cloudservice:

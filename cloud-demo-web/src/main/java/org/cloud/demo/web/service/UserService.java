@@ -18,7 +18,7 @@ public class UserService {
 	@Autowired
 	RestTemplate restTemplate;
 	
-	@Value("${service.name:test}")
+	@Value("${service.name:cloudservice}")
 	String SERVICE_NAME;
 	 
 	@SuppressWarnings("unchecked")

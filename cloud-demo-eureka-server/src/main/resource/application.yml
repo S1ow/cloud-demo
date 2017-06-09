@@ -1,9 +1,9 @@
 server: 
   port: 8761
-  application:
-    name: cloudeureka
 
 spring:
+  application:
+    name: cloudeureka
   cloud: 
     config: 
       uri: http://${config.server.ip}:${config.server.port}

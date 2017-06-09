@@ -1,9 +1,9 @@
 spring: 
   port: 9999
-  application: 
-    name: cloudhello
 
 spring: 
+  application: 
+    name: cloudhello
   cloud:
     config:
       uri: http://${config.server.ip}:${config.server.port}

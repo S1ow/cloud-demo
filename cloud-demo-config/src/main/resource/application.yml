@@ -1,10 +1,10 @@
 
 server: 
   port: 8888 #启动端口
-  application:
-    name: cloud-demo-config #配置服务名称
 
 spring: 
+  application:
+    name: cloud-demo-config #配置服务名称
   cloud: 
     config: 
       server: 
