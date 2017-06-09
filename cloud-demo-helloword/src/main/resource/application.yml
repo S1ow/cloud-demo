@@ -1,0 +1,11 @@
+spring: 
+  port: 9999
+  application: 
+    name: cloudhello
+
+spring: 
+  cloud:
+    config:
+      uri: http://${config.server.ip}:${config.server.port}
+      name: cloudhello
+      profile: ${app.profile:test}

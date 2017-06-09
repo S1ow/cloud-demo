@@ -1,0 +1,20 @@
+server: 
+  port: 8761
+  application:
+    name: cloudeureka
+
+spring:
+  cloud: 
+    config: 
+      uri: http://${config.server.ip}:${config.server.port}
+      name: cloudeureka
+      profile: ${app.profile:test}
+
+eureka:
+  instance:
+    hostname: ${eureka.instance.hostname}
+  client:
+    registerWithEureka: ${eureka.client.registerWithEureka}
+    fetchRegistry: ${eureka.client.fetchRegistry}
+    serviceUrl: 
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

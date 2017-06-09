@@ -1,0 +1,29 @@
+server:
+  port: 8081
+  application: 
+    name: cloudservice
+
+spring: 
+  cloud:
+    config:
+      uri: http://${config.server.ip}:${config.server.port}
+      name: cloudservice
+      profile: ${app.profile:test}
+
+#service discovery url
+eureka: 
+  client:
+    serviceUrl:
+      defaultZone: http\://localhost\:8761/eureka/
+
+#datasource config
+jdbc:
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://192.168.99.100:3306/blog?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf-8
+  username: root
+  password: 123456
+
+#mybatis config
+mybatis:
+  typeAliasesPackage: org.cloud.demo.service.model
+  mapperLocations: classpath:mapper/*.xml
